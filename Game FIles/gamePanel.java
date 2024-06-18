@@ -104,6 +104,10 @@ public class gamePanel extends JPanel implements ActionListener {
         }
 
     }
+    public void activeSleep() throws InterruptedException{
+        Thread.sleep(4000);
+       
+    }
     public void checkCollisions(){
         for(int i = bodyParts; i>0;i--){
             if((x[0]==x[i]) && (y[0]==y[i])){
@@ -176,6 +180,15 @@ public class gamePanel extends JPanel implements ActionListener {
                 case KeyEvent.VK_DOWN:
                     if(direction != 'U'){
                         direction = 'D';
+                    }
+                    break;
+                //added pause button still under progress 
+                case KeyEvent.VK_ESCAPE:
+                    try {
+                        activeSleep();
+                    } catch (InterruptedException e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
                     }
                     break;
             }
